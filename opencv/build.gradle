@@ -59,3 +59,15 @@ android {
 
 dependencies {
 }
+
+task downloadZipFile(type: Download) {
+    src 'https://github.com/d-kicinski/opencv-android/releases/download/v4.4.0/jniLibs.zip'
+    dest new File(buildDir, '1.0.zip')
+    overwrite false
+}
+
+task downloadAndUnzipFile(dependsOn: downloadZipFile, type: Copy) {
+    from zipTree(downloadZipFile.dest)
+    into 'src/main/'
+}
+preBuild.dependsOn downloadAndUnzipFile
