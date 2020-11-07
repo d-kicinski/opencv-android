@@ -2,7 +2,10 @@
 // It is subject to the license terms in the LICENSE file found in the top-level directory
 // of this distribution and at http://opencv.org/license.html.
 
-apply plugin: 'com.android.library'
+plugins {
+    id "de.undercouch.download" version "4.1.1"
+    id 'com.android.library'
+}
 
 def openCVersionName = "4.4.0"
 def openCVersionCode = ((4 * 100 + 4) * 100 + 0) * 10 + 0
